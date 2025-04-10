@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: remix-weather-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: remix-weather
+  ports:
+    - port: 80
+      targetPort: 3000
+
+
+# kubectl create secret generic remix-weather-secret \
+#   --from-literal=WEATHER_API_KEY=<your-api-key> \
+#   -n remix-<environment>
+
+# kubectl create secret generic redis-secret \
+#   --from-literal=REDIS_URL="redis://<host>:6379" \
+#   -n remix-<environment>
