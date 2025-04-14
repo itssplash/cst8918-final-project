@@ -16,6 +16,10 @@
 /.github/workflows       → CI/CD workflows (Terraform, Docker, AKS deploy)
 ```
 
+### Successfully running all the workflows
+
+![Workflow Success](./SCR-20250414-pfjv.png)
+
 ## 🚀 How to Set Up the Project from Scratch
 
 ### Step 1 – Create Terraform Backend (manually, once)
@@ -75,7 +79,7 @@ This will create:
 ```bash
 kubectl create secret generic remix-weather-secret \
   --from-literal=REDIS_URL="<your-redis-url>" \
-  --from-literal=WEATHER_API_KEY="<your-weather-api-key>"
+  --from-literal=WEATHER_API_KEY="<weather-api>"
 ```
 > Repeat this for both `aks-test` and `aks-prod` clusters.
 
