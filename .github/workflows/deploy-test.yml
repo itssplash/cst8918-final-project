@@ -35,11 +35,11 @@ jobs:
         run: |
           kubectl apply -f k8s-app-deployment/
  
-      - name: Update image using GitHub SHA and rollout
+      - name: Update image and rollout
         env:
           ACR_NAME: ${{ secrets.AZURE_ACR_NAME }}
           SHA: ${{ github.sha }}
         run: |
-          echo "Updating image to ${ACR_NAME}.azurecr.io/remix-weather:${SHA}"
           kubectl set image deployment/remix-weather remix-weather=${ACR_NAME}.azurecr.io/remix-weather:${SHA}
           kubectl rollout status deployment remix-weather
+        
