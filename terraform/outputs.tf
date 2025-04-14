@@ -8,7 +8,7 @@ output "aks_prod" {
   value = module.aks_prod
 }
 output "acr" {
-  value = module.acr
+  value     = module.acr
   sensitive = true
 }
 output "redis_test" {
