@@ -13,6 +13,6 @@ resource "azurerm_storage_account" "backend" {
 
 resource "azurerm_storage_container" "backend" {
   name                  = var.container_name
-  storage_account_id = azurerm_storage_account.backend.id
+  storage_account_name = azurerm_storage_account.backend.name
   container_access_type = "private"
 }

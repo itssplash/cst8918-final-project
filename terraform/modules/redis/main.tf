@@ -5,8 +5,7 @@ resource "azurerm_redis_cache" "redis" {
   capacity            = 0
   family              = "C"
   sku_name            = "Basic"
-  non_ssl_port_enabled = true
-
+  enable_non_ssl_port = true
   minimum_tls_version = "1.2"
   redis_configuration {
     maxmemory_policy = "allkeys-lru"
