@@ -10,4 +10,3 @@ subnets = {
   admin = "10.3.0.0/16"
 }
 acr_name   = "cst8918acrgroupfp10"
-image_tag  = "v0.3.0"

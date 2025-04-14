@@ -23,8 +23,5 @@ variable "acr_name" {
   type = string
 }
 
-variable "image_tag" {
-  type = string
-}
 
 variable "subnets" { type = map(string) }
