@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: remix-weather
-          image: <ACR_LOGIN_SERVER>/weather:<TAG>
+          image: cst8918acrgroupfp10.azurecr.io/remix-weather:latest
           ports:
             - containerPort: 3000
           env:
