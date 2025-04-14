@@ -1,8 +1,30 @@
-variable "resource_group_name" {}
-variable "location" { default = "Canada Central" }
-variable "storage_account_name" {}
-variable "container_name" {}
-variable "vnet_name" {}
+variable "resource_group_name" {
+  type = string
+}
+
+variable "location" {
+  type    = string
+  default = "Canada Central"
+}
+
+variable "storage_account_name" {
+  type = string
+}
+
+variable "container_name" {
+  type = string
+}
+
+variable "vnet_name" {
+  type = string
+}
+
+variable "acr_name" {
+  type = string
+}
+
+variable "image_tag" {
+  type = string
+}
+
 variable "subnets" { type = map(string) }
-variable "acr_name" {}
-variable "image_tag" {}
