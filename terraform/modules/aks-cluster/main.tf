@@ -1,13 +1,15 @@
+
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "aks-${var.environment}"
   location            = var.location
   resource_group_name = var.resource_group_name
   dns_prefix          = "aks-${var.environment}"
 
+
   default_node_pool {
     name                = "default"
     vm_size             = "Standard_B2s"
-    enable_auto_scaling = var.environment == "prod" ? true : false
+    auto_scaling_enabled = var.environment == "prod" ? true : false
     node_count          = var.environment == "prod" ? null : 1
     min_count           = var.environment == "prod" ? 1 : null
     max_count           = var.environment == "prod" ? 3 : null
@@ -17,7 +19,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
     type = "SystemAssigned"
   }
 
-  kubernetes_version = "1.32.0"
 
   network_profile {
     network_plugin     = "azure"
