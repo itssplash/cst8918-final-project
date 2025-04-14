@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: remix-weather
+  labels:
+    app: remix-weather
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: remix-weather
+  template:
+    metadata:
+      labels:
+        app: remix-weather
+    spec:
+      containers:
+        - name: remix-weather
+          image: cst8918acrgroupfp10.azurecr.io/remix-weather
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secret
+                  key: REDIS_URL
+            - name: WEATHER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: remix-weather-secret
+                  key: WEATHER_API_KEY
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+
