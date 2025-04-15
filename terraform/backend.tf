@@ -1,5 +1,5 @@
 terraform {
-  
+  required_version = ">= 1.3.0"
 
   backend "azurerm" {
     resource_group_name  = "cst8918-final-project"
@@ -7,5 +7,5 @@ terraform {
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
   }
-
+  
 }
