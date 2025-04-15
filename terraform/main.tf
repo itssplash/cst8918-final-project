@@ -31,42 +31,7 @@ module "network" {
   subnets             = var.subnets
 }
 
-module "aks_test" {
-  source              = "./modules/aks-cluster"
-  environment         = "test"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  subnet_id           = module.network.subnet_ids["test"]
-}
 
-module "aks_prod" {
-  source              = "./modules/aks-cluster"
-  environment         = "prod"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  subnet_id           = module.network.subnet_ids["prod"]
-}
-
-module "acr" {
-  source              = "./modules/acr"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  acr_name            = var.acr_name
-}
-
-module "redis_test" {
-  source              = "./modules/redis"
-  environment         = "test"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-}
-
-module "redis_prod" {
-  source              = "./modules/redis"
-  environment         = "prod"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-}
 
 # module "k8s_app_test" {
 #   source              = "./modules/k8s-app-deployment"
